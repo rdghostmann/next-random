@@ -1,5 +1,5 @@
+import NumDisplay from "@/components/NumDisplay";
 import SearchBar from "@/components/Search";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -8,6 +8,10 @@ export default function Home() {
     <div className="w-full">
       <SearchBar />
     </div>
+
+   <div className="flex w-full flex-col space-x-4">
+   <NumDisplay  />
+   </div>
     </main>
   );
 }

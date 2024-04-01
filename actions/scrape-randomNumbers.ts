@@ -16,11 +16,21 @@ export async function scrapeRandomNumbers(url: string) {
 		await navigationPromise;
 
 		const data = await page.evaluate(() => {
-			const generatedNum: any = document.querySelector('pre')?.innerHTML?.trim().split('\n');
+			// const generatedNum: any = document.querySelector('pre')?.innerHTML?.trim().split('\n');
+			const generatedNum = Array.from(document.querySelectorAll('pre.data'))
+				.reduce((result: any, el: any) => {
+					result.push(el.innerHTML.trim());
+					return result;
+				}, []);
 
-			console.log("StoreDB", { generatedNum })
-			return {generatedNum};
+			if (generatedNum.length === 0) {
+				console.log('No <pre.data> elements found.');
+				return;
+			}
 
+			console.log('StoreDB', { generatedNum });
+
+			return { generatedNum };
 
 		})
 
@@ -30,7 +40,7 @@ export async function scrapeRandomNumbers(url: string) {
 
 	} catch (error) {
 		console.log(error);
-		return null;
+		return "error selecting pre";
 
 	}
 }
