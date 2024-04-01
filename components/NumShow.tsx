@@ -31,7 +31,7 @@ const NumShow = () => {
 
 
   return (
-    <section>
+    <section className="w-full shadow-md bg-stone-300 ">
       <div className="w-full h-screen flex flex-wrap gap-3 mt-4 p-5">
         {storedData.map((dataObj: any, index: any) => (
           <div key={index} className="relative pt-10">

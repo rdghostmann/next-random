@@ -33,7 +33,7 @@ export async function scrapeRandomNumbers(url: string) {
 
 		})
 
-		// await browser.close();
+		await browser.close();
 		// revalidatePath('/');
 		return { ...data };
 
