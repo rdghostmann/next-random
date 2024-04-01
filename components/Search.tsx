@@ -21,7 +21,7 @@ const SearchBar = () => {
     try {
       //scraping logic
       const randomNumber = await scrapeRandomNumbers(searchPrompt);
-      console.log("StoredX:", randomNumber);
+      console.log("randomSets:", randomNumber);
       addRandomNumber(randomNumber);
       // setSearchPrompt("");
     } catch (error) {
@@ -41,13 +41,13 @@ const SearchBar = () => {
           placeholder="Search for Random Number to Scrap"
         />
 
-        <div className="flex gap-3">
-          <button disabled={searchPrompt == '' || isLoading} className={`${searchPrompt !== '' && !isLoading ? 'cursor-pointer bg-gray-800 w-36' : ''}bg-gray-800 w-36 disabled:bg-gray-400 rounded-md px-5 py-3 text-white`}
+        <div className="flex items-center p-3 justify-center gap-3 ">
+          <button disabled={searchPrompt == '' || isLoading} className={`${searchPrompt !== '' && !isLoading ? 'cursor-pointer bg-gray-800 w-fit' : ''}bg-gray-800 w-fit disabled:bg-gray-400 rounded-md px-3 py-1 text-white`}
             onClick={handleSubmit}>{isLoading ? 'Scraping...' : "Scrape"}</button>
 
-          <button
-            className={`${randomNumber && !isLoading ? "cursor-pointer" : ""} bg-gray-800 w-36 disabled:bg-gray-400 rounded-md shadow-xm px-5 py-3 text-white`}
-            onClick={() => { }}>Export</button>
+          {/* <button
+            className={`${randomNumber && !isLoading ? "cursor-pointer" : ""} bg-gray-800 w-fit disabled:bg-gray-400 rounded-md shadow-xm px-3 py-1 text-white`}
+            onClick={() => { }}>Export</button> */}
         </div>
       </div>
     </>
