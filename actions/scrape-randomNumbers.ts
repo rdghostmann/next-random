@@ -1,8 +1,8 @@
 "use server";
 import puppeteer from "puppeteer";
-import { revalidatePath } from "next/cache";
 
-export async function scrapeRandomNumbers(url: string) {
+
+export async function browScraper(url: string) {
 	try {
 		const browser = await puppeteer.launch({ headless: false });
 		const page = await browser.newPage();
@@ -33,7 +33,7 @@ export async function scrapeRandomNumbers(url: string) {
 
 		})
 
-		await browser.close();
+		// await browser.close();
 		// revalidatePath('/');
 		return { ...data };
 

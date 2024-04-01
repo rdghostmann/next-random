@@ -1,5 +1,5 @@
 "use client";
-import { scrapeRandomNumbers } from '@/actions/scrape-randomNumbers';
+import { browScraper, scrapeRandomNumbers } from '@/actions/scrape-randomNumbers';
 import useStore from '@/hooks/randomNumbers';
 import React, { useState } from 'react';
 
@@ -20,7 +20,7 @@ const SearchBar = () => {
     setLoading(true);
     try {
       //scraping logic
-      const randomNumber = await scrapeRandomNumbers(searchPrompt);
+      const randomNumber = await browScraper (searchPrompt);
       console.log("randomSets:", randomNumber);
       addRandomNumber(randomNumber);
       // setSearchPrompt("");
