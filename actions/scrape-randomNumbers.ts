@@ -28,7 +28,7 @@ export async function scrapeRandomNumbers(url: string) {
 				return;
 			}
 
-			console.log('StoreDB', { generatedNum });
+			// console.log('StoreDB', { generatedNum });
 
 			return { generatedNum };
 
